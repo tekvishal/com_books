@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="4.0" method="upgrade">
+    <name>com_employee</name>
+    <creationDate>2024-11-14</creationDate>
+    <copyright>2024 Vaibhav Shinde</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>Vaibhav Shinde</author>
+    <authorEmail>vaibhav87shinde@gmail.com</authorEmail>
+    <authorUrl>http://</authorUrl>
+    <version>CVS: 1.0.1</version>
+    <description></description>
+    <namespace path="src">Empvaibhav\Component\Employee</namespace>
+    
+    
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <update> <!-- Runs on update -->
+        <schemas>
+            <schemapath type="mysql">sql/updates</schemapath>
+        </schemas>
+    </update>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    
+
+    <files folder="site">
+        <folder>src</folder>
+        <folder>forms</folder>
+        <folder>tmpl</folder>
+    </files>
+    <media destination="com_employee" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+        <filename>joomla.asset.json</filename>
+    </media>
+    <languages folder="site/languages">
+        
+			<language tag="en-GB">en-GB/com_employee.ini</language>
+    </languages>
+    <administration>
+        <menu>COM_EMPLOYEE</menu>
+        <submenu>
+            
+			<menu link="option=com_employee&amp;view=employees" view="employees" alt="Employee/Employees">COM_EMPLOYEE_TITLE_EMPLOYEES</menu>
+			<menu link="option=com_employee&amp;view=books" view="books" alt="Book/Books">Books</menu>
+			<menu link="option=com_employee&amp;view=positions" view="positions" alt="Position/Positions">Positions</menu>
+
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <folder>forms</folder>
+            <folder>src</folder>
+            <folder>tmpl</folder>
+            <folder>services</folder>
+            <folder>presets</folder>
+            <folder>sql</folder>
+        </files>
+        <languages folder="administrator/languages">
+            
+			<language tag="en-GB">en-GB/com_employee.ini</language>
+			<language tag="en-GB">en-GB/com_employee.sys.ini</language>
+        </languages>
+    </administration>
+    <config>
+        <fields name="params">
+            <fieldset name="component">
+                <field name="save_history" default="0" />
+            </fieldset>
+        </fields>
+    </config>
+    <plugins>
+    </plugins>
+    
+
+    <updateservers>
+        <server type="extension" priority="1" name="com_employee">https://nocdn.component-creator.com/index.php?task=builder.preupdatecheckhook&amp;option=com_combuilder&amp;component=NzYzNTQtMjEzNDU0</server>
+    </updateservers>
+</extension>
+<!-- Component built by the Joomla Component Creator -->
+<!-- http://www.component-creator.com/ -->
